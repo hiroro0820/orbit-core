@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html><head><base target="_top"><style>
+body{font-family:sans-serif;font-size:14px;margin:4px 8px;color:#222}
+label{display:block;margin:12px 0 4px;font-weight:bold}
+input{width:100%;box-sizing:border-box;padding:8px;font-size:14px}
+button{margin-top:16px;padding:8px 20px;font-size:14px}
+#msg{margin-top:12px}
+</style></head><body>
+<? if (URLあり) { ?>
+<div>Routines の画面で Generate token を押し、出た文字をコピーして、下に貼ってください（会話やメールには貼りません）。Fire URL は入れてあります。</div>
+<input id="u" type="hidden" value="">
+<label for="t">トークン（Generate token で出た文字）</label>
+<? } else { ?>
+<div>Routines の画面からコピーして、そのまま貼ってください（会話やメールには貼りません）。</div>
+<label for="u">1. Fire URL</label><input id="u" type="text" autocomplete="off">
+<label for="t">2. トークン（Generate token で出た文字）</label>
+<? } ?><input id="t" type="password" autocomplete="off">
+<button id="b" onclick="save()">保存</button>
+<div id="msg"></div>
+<script>
+function save(){
+  var b=document.getElementById('b'); b.disabled=true; document.getElementById('msg').textContent='保存しています…';
+  google.script.run.withSuccessHandler(function(r){
+    document.getElementById('msg').textContent=r.文; b.disabled=false;
+    if(r.ok){document.getElementById('u').value='';document.getElementById('t').value='';}
+  }).withFailureHandler(function(){document.getElementById('msg').textContent='保存できませんでした。もう一度押してください。'; b.disabled=false;})
+    .鍵を保存(document.getElementById('u').value, document.getElementById('t').value);
+}
+</script></body></html>

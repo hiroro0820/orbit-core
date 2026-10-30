@@ -5,7 +5,7 @@ description: 作業場の芯（想起・見張りの仕組みと手順書）の�
 # 芯を更新する
 
 1. **今の版を見る**：`.orbit/版.json` の core（無ければ「まだ入っていない」）
-2. **新しい版を取る**：取り出し元（公開の orbit-core。試しの時は言われたフォルダ）から、最新の札（core-YYYY.MM.DD）を一時フォルダへ。公開から取る時は `git clone --depth 1 --branch <札> <URL> <一時フォルダ>`（ログインも費用も要らない）。中の workspace/（試しのフォルダならその直下）が芯
+2. **新しい版を取る**：取り出し元（`.orbit/取り出し元.txt` の1行目の URL・配るセットに入っている。最新の札は `git ls-remote --tags <URL> "core-*"` の一番新しい日付。試しの時は言われたフォルダ）から、最新の札（core-YYYY.MM.DD）を一時フォルダへ。公開から取る時は `git clone --depth 1 --branch <札> <URL> <一時フォルダ>`（ログインも費用も要らない）。中の workspace/（試しのフォルダならその直下）が芯
 3. **変わる所を見せる**：README.md の「変えた所」で今の版より新しい行と、「許可が変わる」の有無を、ふつうの言葉で2〜3行。許可が変わる版は「許可の画面が1回出ます」と伝え、了解をもらう
 4. **当てる**：hooks/*.sh → `.orbit/core/`（上書き・ここは許可の画面が出ない）／skills/* → `.claude/skills/`（同じ名前だけ上書き・ほかの手順書は触らない）／settings.json の hook の行は配るセットに最初から入っている。無い時だけ `.claude/settings.json` に足す（許可の画面が1回出る・ほかの設定は残す）。skills/ が変わる版も `.claude/` に書くので許可の画面が1回出る。記憶/・資料/・引き継ぎ/ と custom/ には触らない
 5. **確かめる**：`zsh .orbit/core/mihari.sh` と `echo '{"prompt":"テスト"}' | zsh .orbit/core/omoidasu.sh` がエラーなく終わる

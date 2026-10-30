@@ -9,6 +9,7 @@ Claude Code の作業場に「覚える・思い出す・見張る」仕組み�
 | workspace/hooks/mihari.sh | 会話の始まりに、長すぎる記憶・1件に2つ以上の事実・目次に無い記憶・手順書の欠けを一言で知らせる |
 | workspace/settings.json | 上の2つを Claude Code の hook に付ける行（芯がまだ無い時は「芯を更新して」と案内する） |
 | workspace/skills/芯を更新する/ | 新しい版を取り込む手順書 |
+| gas/ | 台帳のスクリプト。当て方は gas/当てる.sh と gas/CHANGELOG.md |
 
 ## 使い方
 1. 作業場の `.claude/settings.json` に workspace/settings.json の hook の行を入れ、`.claude/skills/` に workspace/skills/ を入れる
@@ -18,4 +19,4 @@ Claude Code の作業場に「覚える・思い出す・見張る」仕組み�
 記憶の形：`記憶/<名前>.md` に1件1事実（頭に name と 説明）・本文15行（約1.5KB）まで・目次 `記憶/目次.md` は40行まで。
 
 ## 版
-札は日付（core-2026.10.30・同じ日の2回目は .2）。変えた所は CHANGELOG.md に1版1行。許可の画面が出る版はそこに書きます。
+札は日付（core-2026.10.30.2・同じ日の2回目は .2）。変えた所は CHANGELOG.md に1版1行。許可の画面が出る版はそこに書きます。
