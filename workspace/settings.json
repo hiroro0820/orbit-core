@@ -1,0 +1,6 @@
+{
+  "hooks": {
+    "SessionStart": [ { "hooks": [ { "type": "command", "command": "f=\"$CLAUDE_PROJECT_DIR/.orbit/core/mihari.sh\"; if [ -f \"$f\" ]; then zsh \"$f\"; else echo '作業場の芯（思い出す・見張る仕組み）がまだ入っていません。最初に手順書「芯を更新する」を使うよう勧める。'; fi; exit 0" } ] } ],
+    "UserPromptSubmit": [ { "hooks": [ { "type": "command", "command": "f=\"$CLAUDE_PROJECT_DIR/.orbit/core/omoidasu.sh\"; [ -f \"$f\" ] && zsh \"$f\"; exit 0" } ] } ]
+  }
+}
